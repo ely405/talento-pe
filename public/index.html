@@ -8,7 +8,24 @@
   <title>Yape</title>
 </head>
 <body>
-  <main id="root"></main>
+  <main id="root" class="valign-wrapper flex-column space-around">
+    <div class="row valign-wrapper flex-column">
+      <img src="img/icons/phone.png" alt="Phone" class=" col s6 m-auto">
+      <h4 class="center">Para comenzar validemos tu número</h4>
+      <p>Recibirás un SMS con un código de validación</p>
+      <div class="input-field row">
+        <img src="img/icons/phoneandnumber.png" alt="Phone and number" class="col s4 select-label h-60pr">
+        <input id="phone-number" type="text" class="validate p-l-126 col s12">
+      </div>
+      <div class="input-field">
+        <input type="checkbox" class="filled-in" id="filled-in-box"/>
+        <label for="filled-in-box">Acepto los <a href="#">Términos y condiciones</a></label>
+      </div>
+    </div>
+    <div class="input-field">
+      <button type="button" class="waves-effect btn disabled">Continuar</a>
+    </div>
+  </main>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/vendor/materialize.min.js"></script>
   <script src="js/components/welcome.js"></script>
