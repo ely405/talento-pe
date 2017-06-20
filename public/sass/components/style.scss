@@ -1,6 +1,3 @@
-#root{
-  min-height: 100vh;
-}
 
 .flex-column{
   flex-direction: column;
@@ -16,4 +13,7 @@
 }
 .h-60pr{
   height: 60%;
+}
+.h-100vh{
+  min-height: 100vh;
 }
