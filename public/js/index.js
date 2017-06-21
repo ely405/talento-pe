@@ -1,9 +1,9 @@
-
 'use strict';
 
 const update = ()=>{
   render(documentRoot);
 }
+
 const render = (documentRoot)=>{
   documentRoot.empty();
   documentRoot.append(createWelcome(update));
@@ -21,6 +21,6 @@ const documentLoad = ()=>{
 }
 
 $(document).ready(function(){
-    documentLoad();
-     $('.carousel').carousel();
+  documentLoad();
+  $('.carousel').carousel();
 });
