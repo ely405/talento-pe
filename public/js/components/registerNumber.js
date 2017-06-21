@@ -38,7 +38,7 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   btnContinue.click(()=>{
     console.log('clicl continue');
     state.screen = 'resendCodeScreen';
-    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction), 'registerNumberScreen');
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer));
   })
 
   return registerWrapper;

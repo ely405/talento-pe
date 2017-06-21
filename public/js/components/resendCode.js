@@ -1,6 +1,6 @@
 'use strict';
 
-const createResendCodeScreen = (updatePageFunction, userPhoneNumber)=>{
+const createResendCodeScreen = (updatePageFunction, wrapperContainer, userPhoneNumber)=>{
   console.log(state.screen);
   let resendWrapper = $('<section/>',{'class':'row valign-wrapper flex-column container bg-no-repeat h-95vh flex-center', 'id':'message-container'});
   let resendTitle = $('<h4/>',{'class':'center'}).html('Ahora ingresa tu código');
@@ -13,5 +13,13 @@ const createResendCodeScreen = (updatePageFunction, userPhoneNumber)=>{
   let countDown = $('<span/>',{'id':'count-down'}).html('time');
   retryPara.append(clockIcon, countDown);
   resendWrapper.append(resendTitle, resendPar, inpCode, retryPara);
+
+  inpCode.keyup(()=>{
+    if(inpCode.val().length == 6){
+      console.log('6 dígitos');
+      state.screen = 'createUserAccountScreen';
+      reRender(wrapperContainer, updatePageFunction, createUserAccount(updatePageFunction, wrapperContainer));
+    }
+  })
   return resendWrapper;
 }
