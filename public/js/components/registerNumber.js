@@ -1,6 +1,6 @@
 'use strict';
 
-const createRegisterNumber = (updatePageFunction)=>{
+const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   console.log(state.screen);
   let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-100vh container'});
   let registerContainer = $('<div/>',{'class':'row valign-wrapper flex-column', 'id':'register-container'});
@@ -22,7 +22,7 @@ const createRegisterNumber = (updatePageFunction)=>{
   registerContainer.append(phoneImg, title, paragraphSMS, inpPhoneContainer, inpCheckContainer);
 
   let btnContainer = $('<div/>',{'class':'input-field'});
-  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn disabled', 'id':'btn-continue', 'disabled':'disabled'}).html('Continuar');
+  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn', 'id':'btn-continue'}).html('Continuar');
 
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
@@ -34,6 +34,12 @@ const createRegisterNumber = (updatePageFunction)=>{
       $('#btn-continue').css('color','black');
     }
   });
+
+  btnContinue.click(()=>{
+    console.log('clicl continue');
+    state.screen = 'resendCodeScreen';
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction), 'registerNumberScreen');
+  })
 
   return registerWrapper;
 }

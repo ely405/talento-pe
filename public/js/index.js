@@ -6,7 +6,8 @@ const update = ()=>{
 
 const render = (documentRoot)=>{
   documentRoot.empty();
-  documentRoot.append(createWelcome(update));
+  let wrapper = $('<section/>');
+  documentRoot.append(wrapper.append(createWelcome(update, wrapper)));
 }
 
 const reRender = (resultContainer, update, screenToAppend)=>{

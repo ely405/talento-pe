@@ -1,6 +1,6 @@
 'use strict';
 
-const createWelcome = (updatePageFunction)=>{
+const createWelcome = (updatePageFunction, wrapperContainer)=>{
   console.log(state.screen);
   let welcomeWrapper = $('<section/>',{'class':'row valign-wrapper flex-column space-around h-100vh container'});
 
@@ -32,7 +32,7 @@ const createWelcome = (updatePageFunction)=>{
 
   btnRegister.click(()=>{
     state.screen = 'registerNumberScreen';
-    reRender(welcomeWrapper, updatePageFunction, createRegisterNumber(), 'registerNumberScreen');
+    reRender(wrapperContainer, updatePageFunction, createRegisterNumber(updatePageFunction, wrapperContainer), 'registerNumberScreen');
   })
   return welcomeWrapper;
 }
