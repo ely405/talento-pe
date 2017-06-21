@@ -2,7 +2,7 @@
 
 const createWelcome = (updatePageFunction, wrapperContainer)=>{
   console.log(state.screen);
-  let welcomeWrapper = $('<section/>',{'class':'row valign-wrapper flex-column space-around h-100vh container'});
+  let welcomeWrapper = $('<section/>',{'class':'row valign-wrapper flex-column space-around h-95vh container'});
 
   let carouselContainer = $('<div/>',{'class':'col s12 m5 l6 carousel carousel-slider center m-auto', 'data-indicators':'true'});
 

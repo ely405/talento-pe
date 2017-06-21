@@ -2,7 +2,7 @@
 
 const createResendCodeScreen = (updatePageFunction, userPhoneNumber)=>{
   console.log(state.screen);
-  let resendWrapper = $('<section/>',{'class':'row valign-wrapper flex-column container bg-no-repeat h-100vh flex-center', 'id':'message-container'});
+  let resendWrapper = $('<section/>',{'class':'row valign-wrapper flex-column container bg-no-repeat h-95vh flex-center', 'id':'message-container'});
   let resendTitle = $('<h4/>',{'class':'center'}).html('Ahora ingresa tu código');
   let resendPar = $('<p/>',{'class':'center'}).html('Enviamos un código de validación al número');
   let phoneToSend = $('<strong/>').html(userPhoneNumber);

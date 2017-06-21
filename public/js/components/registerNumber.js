@@ -2,7 +2,7 @@
 
 const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   console.log(state.screen);
-  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-100vh container'});
+  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-95vh container'});
   let registerContainer = $('<div/>',{'class':'row valign-wrapper flex-column', 'id':'register-container'});
   let phoneImg = $('<img/>',{'src':'img/icons/phone.png', 'alt':'Phone', 'class':'col s6 m-auto'});
   let title = $('<h5/>',{'class':'center'}).html('Para comenzar validemos tu número');

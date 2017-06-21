@@ -6625,8 +6625,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .m-auto {
   margin: auto; }
 
-.h-100vh {
-  min-height: 100vh; }
+.h-95vh {
+  min-height: 95vh; }
 
 .bg-contain {
   background-size: contain; }
@@ -6642,8 +6642,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 #message-container {
   background-image: url("../img/icons/message.png");
-  background-position: 50% 5%;
-  background-size: 50%; }
+  background-position: 50% 15%;
+  background-size: 40%; }
 
 #inp-code {
   background-image: url("../img/icons/lock.png"); }
