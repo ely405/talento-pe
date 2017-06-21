@@ -27,7 +27,7 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
   registerContainer.on('change', '.to-enable', ()=>{
-    if(inpPhone.val().length > 0 && checkTerms.is(':checked')){
+    if(inpPhone.val().length == 9 && checkTerms.is(':checked')){
       btnContinue.removeAttr('disabled');
       btnContinue.removeClass('disabled');
     }
@@ -40,8 +40,10 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
       "terms": checkTerms.is(':checked')
     }, (data, status)=>{
       console.log(data);
+      if(data.success != 'false'){
+        reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
+      }
     });
-    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
   })
 
   return registerWrapper;
