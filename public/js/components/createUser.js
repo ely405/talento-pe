@@ -1,6 +1,6 @@
 'use strict';
 
-const createUserAccount = (updatePageFunction, wrapperContainer)=>{
+const createUserAccount = (updatePageFunctioon, wrapperContainer)=>{
   let createUserContainer = $('<div/>',{'class':'row valign-wrapper flex-column container', 'id':'create-user-container'});
   let imgLockOne = $('<img/>',{'src':'img/icons/lockone.png', 'alt':'Lock One', 'class':'col s6 m-auto'});
   let userTitle = $('<h5/>',{'class':'center'}).html('Crea tu usuario Yape');
@@ -14,11 +14,5 @@ const createUserAccount = (updatePageFunction, wrapperContainer)=>{
   let btnAccount = $('<button/>',{'type':'button', 'class':'waves-effect btn', 'id':'btn-account'}).html('CREAR CUENTA');
   formContainer.append(userName, userEmail, userPass, formPar, btnAccount);
   createUserContainer.append(imgLockOne, userTitle, userPar, formContainer);
-
-  btnAccount.click(()=>{
-    console.log('click crea cuenta');
-    state.screen = 'congratulationsScreen';
-    reRender(wrapperContainer, updatePageFunction, createCongratulations(updatePageFunction));
-  })
   return createUserContainer;
 }

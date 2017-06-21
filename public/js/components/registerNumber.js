@@ -10,8 +10,8 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
 
   let inpPhoneContainer = $('<div/>',{'class':'input-field row'});
   let imgPhoneNumber = $('<img/>',{'src':'img/icons/phoneandnumber.png', 'alt':'Phone and number', 'class':'col s4 select-label h-60pr'});
-  let inpPhone = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
-  inpPhoneContainer.append(imgPhoneNumber, inpPhone);
+  let inpPhoneNumber = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
+  inpPhoneContainer.append(imgPhoneNumber, inpPhoneNumber);
 
   let inpCheckContainer = $('<div/>',{'class':'input-field'});
   let checkTerms = $('<input/>',{'type':'checkbox', 'class':'filled-in to-enable', 'id':'check-terms'});
@@ -22,28 +22,23 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   registerContainer.append(phoneImg, title, paragraphSMS, inpPhoneContainer, inpCheckContainer);
 
   let btnContainer = $('<div/>',{'class':'input-field'});
-  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn disabled', 'id':'btn-continue', 'disabled':'disabled'}).html('Continuar');
+  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn', 'id':'btn-continue'}).html('Continuar');
 
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
   registerContainer.on('change', '.to-enable', ()=>{
-    if(inpPhone.val().length == 9 && checkTerms.is(':checked')){
-      btnContinue.removeAttr('disabled');
-      btnContinue.removeClass('disabled');
+    console.log('cambio');
+    console.log(inpPhoneNumber.val());
+    console.log(checkTerms.prop('checked'));
+    if(inpPhoneNumber.val() != '' && checkTerms.prop('checked') === 'true'){
+      $('#btn-continue').css('color','black');
     }
   });
 
   btnContinue.click(()=>{
+    console.log('clicl continue');
     state.screen = 'resendCodeScreen';
-    $.post('/api/registerNumber', {
-      "phone": inpPhone.val(),
-      "terms": checkTerms.is(':checked')
-    }, (data, status)=>{
-      console.log(data);
-      if(data.success != 'false'){
-        reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
-      }
-    });
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer));
   })
 
   return registerWrapper;
