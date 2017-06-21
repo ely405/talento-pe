@@ -3299,7 +3299,7 @@ em {
   font-style: italic; }
 
 strong {
-  font-weight: 500; }
+  font-weight: 800; }
 
 small {
   font-size: 75%; }
@@ -5867,14 +5867,14 @@ input[type=range]:focus::-ms-fill-upper {
       display: inline-block;
       position: relative;
       cursor: pointer;
-      height: 8px;
-      width: 8px;
+      height: 10px;
+      width: 10px;
       margin: 24px 4px;
       background-color: rgba(255, 255, 255, 0.5);
       transition: background-color .3s;
       border-radius: 50%; }
       .carousel .indicators .indicator-item.active {
-        background-color: #fff; }
+        background-color: red; }
   .carousel.scrolling .carousel-item .materialboxed,
   .carousel .carousel-item:not(.active) .materialboxed {
     pointer-events: none; }
@@ -6616,16 +6616,58 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .space-around {
   justify-content: space-around; }
 
+.flex-center {
+  justify-content: center; }
+
+.d-flex {
+  display: flex; }
+
 .m-auto {
   margin: auto; }
 
-#phone-number.p-l-126 {
-  padding-left: 9rem; }
+.m-inherit {
+  margin: inherit; }
+
+.h-95vh {
+  min-height: 95vh; }
+
+.h-100vh {
+  height: 100vh; }
+
+.bg-icon {
+  background-size: 13%; }
+
+.bg-contain {
+  background-size: contain; }
+
+.bg-no-repeat {
+  background-repeat: no-repeat; }
+
+#register-container input, #message-container input, #create-user-container input {
+  padding-left: 5rem; }
 
 .h-60pr {
   height: 60%; }
 
-.h-100vh {
-  min-height: 100vh; }
+#message-container {
+  background-image: url("../img/icons/message.png");
+  background-position: 50% 15%;
+  background-size: 40%; }
+
+#inp-code {
+  background-image: url("../img/icons/lock.png"); }
+
+#clock-icon {
+  background-image: url("../img/icons/clock.png");
+  padding: 0.3rem 1rem; }
+
+#user-name {
+  background-image: url("../img/icons/user.png"); }
+
+#user-email {
+  background-image: url("../img/icons/message-gray.png"); }
+
+#user-pass {
+  background-image: url("../img/icons/lock.png"); }
 
 /*# sourceMappingURL=mmaterialize.css.map */

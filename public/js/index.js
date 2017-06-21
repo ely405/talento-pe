@@ -3,12 +3,16 @@
 const update = ()=>{
   render(documentRoot);
 }
+
 const render = (documentRoot)=>{
   documentRoot.empty();
-  const wrapper = $('<div/>', {'class':'wrapper'});
+  let wrapper = $('<section/>');
+  documentRoot.append(wrapper.append(createWelcome(update, wrapper)));
+}
 
-  // wrapper.append(createHeader(update), createSelect(update));
-  // documentRoot.append(wrapper);
+const reRender = (resultContainer, update, screenToAppend)=>{
+  resultContainer.empty();
+  resultContainer.append(screenToAppend);
 }
 
 const state={
@@ -18,8 +22,11 @@ const state={
 
 const documentLoad = ()=>{
   state.screen = 'welcome';
-  let rootToLoad = $('.root');
+  let rootToLoad = $('#root');
   render(rootToLoad);
 }
 
-$(documentLoad);
+$(document).ready(function(){
+  documentLoad();
+  $('.carousel').carousel();
+});

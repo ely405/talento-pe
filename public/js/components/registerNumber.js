@@ -1,21 +1,17 @@
 'use strict';
 
-const reRender = (resultContainer, update)=>{
-  resultContainer.empty();
-  resultContainer.append(createRegisterNumber());
-}
-
-const createRegisterNumber = (updatePageFunction)=>{
-  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-100vh'});
+const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
+  console.log(state.screen);
+  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-95vh container'});
   let registerContainer = $('<div/>',{'class':'row valign-wrapper flex-column', 'id':'register-container'});
   let phoneImg = $('<img/>',{'src':'img/icons/phone.png', 'alt':'Phone', 'class':'col s6 m-auto'});
-  let title = $('<h4/>',{'class':'center'}).html('Para comenzar validemos tu número');
+  let title = $('<h5/>',{'class':'center'}).html('Para comenzar validemos tu número');
   let paragraphSMS = $('<p/>').html('Recibirás un SMS con un código de validación');
 
   let inpPhoneContainer = $('<div/>',{'class':'input-field row'});
   let imgPhoneNumber = $('<img/>',{'src':'img/icons/phoneandnumber.png', 'alt':'Phone and number', 'class':'col s4 select-label h-60pr'});
-  let inpPhoneNumber = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
-  inpPhoneContainer.append(imgPhoneNumber, inpPhoneNumber);
+  let inpPhone = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
+  inpPhoneContainer.append(imgPhoneNumber, inpPhone);
 
   let inpCheckContainer = $('<div/>',{'class':'input-field'});
   let checkTerms = $('<input/>',{'type':'checkbox', 'class':'filled-in to-enable', 'id':'check-terms'});
@@ -31,13 +27,16 @@ const createRegisterNumber = (updatePageFunction)=>{
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
   registerContainer.on('change', '.to-enable', ()=>{
-    console.log('cambio');
-    console.log(inpPhoneNumber.val());
-    console.log(checkTerms.prop('checked'));
-    if(inpPhoneNumber.val() != '' && checkTerms.prop('checked') === 'true'){
-      $('#btn-continue').css('color','black');
+    if(inpPhone.val().length > 0 && checkTerms.is(':checked')){
+      btnContinue.removeAttr('disabled');
+      btnContinue.removeClass('disabled');
     }
   });
+
+  btnContinue.click(()=>{
+    state.screen = 'resendCodeScreen';
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer));
+  })
 
   return registerWrapper;
 }
