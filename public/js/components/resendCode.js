@@ -10,9 +10,10 @@ const createResendCodeScreen = (updatePageFunction, wrapperContainer, userPhoneN
   let inpCode = $('<input/>',{'id':'inp-code', 'type':'text', 'class':'validate p-l-126 col s11 bg-contain bg-no-repeat', 'placeholder':'- - - - -'});
   let retryPara = $('<p/>',{'class':'center'}).html('Reintentar en ');
   let clockIcon = $('<i/>',{'id':'clock-icon','class':'bg-contain bg-no-repeat'});
-  let countDown = $('<span/>',{'id':'count-down'}).html('time');
+  let countDown = $('<span/>',{'id':'count-down'}).html(countDownInterval());
   retryPara.append(clockIcon, countDown);
   resendWrapper.append(resendTitle, resendPar, inpCode, retryPara);
+
 
   inpCode.keyup(()=>{
     if(inpCode.val().length == 6){
@@ -22,4 +23,16 @@ const createResendCodeScreen = (updatePageFunction, wrapperContainer, userPhoneN
     }
   })
   return resendWrapper;
+}
+
+const countDownInterval = ()=>{
+  let initCounter = 21;
+  return setInterval(()=>{
+    console.log(initCounter -= 1);
+    // if(initCounter == 1){
+    //   setTimeout(()=>{
+    //     console.log(initCounter = 21);
+    //   }, 1000)
+    // }
+  }, 1000);
 }
