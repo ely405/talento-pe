@@ -2,10 +2,10 @@
 
 const createRegisterNumber = (updatePageFunction)=>{
   console.log(state.screen);
-  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-100vh'});
+  let registerWrapper = $('<section/>',{'class':'valign-wrapper flex-column space-around h-100vh container'});
   let registerContainer = $('<div/>',{'class':'row valign-wrapper flex-column', 'id':'register-container'});
   let phoneImg = $('<img/>',{'src':'img/icons/phone.png', 'alt':'Phone', 'class':'col s6 m-auto'});
-  let title = $('<h4/>',{'class':'center'}).html('Para comenzar validemos tu número');
+  let title = $('<h5/>',{'class':'center'}).html('Para comenzar validemos tu número');
   let paragraphSMS = $('<p/>').html('Recibirás un SMS con un código de validación');
 
   let inpPhoneContainer = $('<div/>',{'class':'input-field row'});
