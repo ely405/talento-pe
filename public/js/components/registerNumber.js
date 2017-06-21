@@ -41,37 +41,3 @@ const createRegisterNumber = (updatePageFunction)=>{
 
   return registerWrapper;
 }
-
-let inpPhone = $('#phone-number');
-let checkTerms = $('#check-terms');
-
-const enableContinueButton = ()=>{
-  console.log('enable');
-  if(inpPhone.val() != '' && checkTerms.prop('checked') == 'true'){
-    console.log('lleno');
-    $('#btn-continue').removeAttr('disabled');
-    $('#btn-continue').removeClass('disabled');
-  }
-}
-
-$('#container').on('change', '.to-enable', ()=>{
-  console.log('cambio');
-  console.log(inpPhone.val());
-  console.log(checkTerms.prop('checked'));
-  if(inpPhone.val() != '' && checkTerms.prop('checked') === 'true'){
-    $('#btn-continue').css('color','black');
-  }
-})
-
-
-$('#btn-continue').click(()=>{
-  console.log('click');
-  reRender($('#root'), update);
-  $.post('/api/registerNumber', {
-    "phone": inpPhone.val(),
-    "terms": checkTerms.prop('checked')
-  }, (data, status)=>{
-    console.log(data);
-    console.log(status);
-  });
-})
