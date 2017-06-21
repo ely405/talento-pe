@@ -6628,14 +6628,17 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .h-95vh {
   min-height: 95vh; }
 
+.bg-icon {
+  background-size: 13%; }
+
 .bg-contain {
   background-size: contain; }
 
 .bg-no-repeat {
   background-repeat: no-repeat; }
 
-#phone-number.p-l-126, #inp-code.p-l-126 {
-  padding-left: 9rem; }
+#register-container input, #message-container input, #create-user-container input {
+  padding-left: 5rem; }
 
 .h-60pr {
   height: 60%; }
@@ -6651,5 +6654,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 #clock-icon {
   background-image: url("../img/icons/clock.png");
   padding: 0.3rem 1rem; }
+
+#user-name {
+  background-image: url("../img/icons/user.png"); }
+
+#user-email {
+  background-image: url("../img/icons/message-gray.png"); }
+
+#user-pass {
+  background-image: url("../img/icons/lock.png"); }
 
 /*# sourceMappingURL=mmaterialize.css.map */

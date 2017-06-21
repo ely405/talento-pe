@@ -7,7 +7,7 @@ const createResendCodeScreen = (updatePageFunction, userPhoneNumber)=>{
   let resendPar = $('<p/>',{'class':'center'}).html('Enviamos un código de validación al número');
   let phoneToSend = $('<strong/>').html(userPhoneNumber);
   resendPar.append(phoneToSend);
-  let inpCode = $('<input/>',{'type':'text', 'class':'validate p-l-126 col s11 bg-contain bg-no-repeat', 'placeholder':'- - - - -'});
+  let inpCode = $('<input/>',{'id':'inp-code', 'type':'text', 'class':'validate p-l-126 col s11 bg-contain bg-no-repeat', 'placeholder':'- - - - -'});
   let retryPara = $('<p/>',{'class':'center'}).html('Reintentar en ');
   let clockIcon = $('<i/>',{'id':'clock-icon','class':'bg-contain bg-no-repeat'});
   let countDown = $('<span/>',{'id':'count-down'}).html('time');

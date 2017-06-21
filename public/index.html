@@ -9,6 +9,20 @@
 </head>
 <body>
   <main id="root"></main>
+  <section>
+    <div class="row valign-wrapper flex-column container" id="create-user-container">
+      <img src="img/icons/lockone.png" alt="Phone" class=" col s6 m-auto">
+      <h5 class="center">Crea tu usuario Yape</h5>
+      <h6>Ingresa un nombre, email y clave de usuario</h6>
+      <form class="col m-auto s11 valign-wrapper flex-column">
+        <input id="user-name" type="text" class="validate p-l-126 col s12 bg-icon bg-no-repeat" placeholder="nombre">
+        <input id="user-email" type="email" class="validate p-l-126 col s12 bg-icon bg-no-repeat" placeholder="correo">
+        <input id="user-pass" type="password" class="validate p-l-126 col s12 bg-icon bg-no-repeat" placeholder="contraseña">
+        <p class="center">Cuida esta clave como oro, es tu clave de acceso a Yape.</p>
+        <button type="button" class="waves-effect btn" id="btn-continue">Continuar</a>
+      </form>
+    </div>
+  </section>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/vendor/materialize.min.js"></script>
   <script src="js/components/welcome.js"></script>
