@@ -10,7 +10,7 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
 
   let inpPhoneContainer = $('<div/>',{'class':'input-field row'});
   let imgPhoneNumber = $('<img/>',{'src':'img/icons/phoneandnumber.png', 'alt':'Phone and number', 'class':'col s4 select-label h-60pr'});
-  let inpPhone = $('<input/>',{'id':'phone-number', 'type':'number', 'class':'validate p-l-126 col s12 to-enable'});
+  let inpPhone = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
   inpPhoneContainer.append(imgPhoneNumber, inpPhone);
 
   let inpCheckContainer = $('<div/>',{'class':'input-field'});
@@ -27,7 +27,7 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
   registerContainer.on('change', '.to-enable', ()=>{
-    if(inpPhone.val().length == 9 && checkTerms.is(':checked')){
+    if(inpPhone.val().length > 0 && checkTerms.is(':checked')){
       btnContinue.removeAttr('disabled');
       btnContinue.removeClass('disabled');
     }
@@ -39,11 +39,9 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
       "phone": inpPhone.val(),
       "terms": checkTerms.is(':checked')
     }, (data, status)=>{
-      if(data.success != 'false'){
-        reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
-      }
+      console.log(data);
     });
-
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
   })
 
   return registerWrapper;
