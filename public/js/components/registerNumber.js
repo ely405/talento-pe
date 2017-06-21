@@ -10,8 +10,8 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
 
   let inpPhoneContainer = $('<div/>',{'class':'input-field row'});
   let imgPhoneNumber = $('<img/>',{'src':'img/icons/phoneandnumber.png', 'alt':'Phone and number', 'class':'col s4 select-label h-60pr'});
-  let inpPhoneNumber = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
-  inpPhoneContainer.append(imgPhoneNumber, inpPhoneNumber);
+  let inpPhone = $('<input/>',{'id':'phone-number', 'type':'text', 'class':'validate p-l-126 col s12 to-enable'});
+  inpPhoneContainer.append(imgPhoneNumber, inpPhone);
 
   let inpCheckContainer = $('<div/>',{'class':'input-field'});
   let checkTerms = $('<input/>',{'type':'checkbox', 'class':'filled-in to-enable', 'id':'check-terms'});
@@ -22,21 +22,18 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
   registerContainer.append(phoneImg, title, paragraphSMS, inpPhoneContainer, inpCheckContainer);
 
   let btnContainer = $('<div/>',{'class':'input-field'});
-  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn', 'id':'btn-continue'}).html('Continuar');
+  let btnContinue = $('<button/>',{'type':'button', 'class':'waves-effect btn disabled', 'id':'btn-continue', 'disabled':'disabled'}).html('Continuar');
 
   registerWrapper.append(registerContainer, btnContainer.append(btnContinue));
 
   registerContainer.on('change', '.to-enable', ()=>{
-    console.log('cambio');
-    console.log(inpPhoneNumber.val());
-    console.log(checkTerms.prop('checked'));
-    if(inpPhoneNumber.val() != '' && checkTerms.prop('checked') === 'true'){
-      $('#btn-continue').css('color','black');
+    if(inpPhone.val().length > 0 && checkTerms.is(':checked')){
+      btnContinue.removeAttr('disabled');
+      btnContinue.removeClass('disabled');
     }
   });
 
   btnContinue.click(()=>{
-    console.log('clicl continue');
     state.screen = 'resendCodeScreen';
     reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer));
   })
