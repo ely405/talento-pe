@@ -35,7 +35,13 @@ const createRegisterNumber = (updatePageFunction, wrapperContainer)=>{
 
   btnContinue.click(()=>{
     state.screen = 'resendCodeScreen';
-    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer));
+    $.post('/api/registerNumber', {
+      "phone": inpPhone.val(),
+      "terms": checkTerms.is(':checked')
+    }, (data, status)=>{
+      console.log(data);
+    });
+    reRender(wrapperContainer, updatePageFunction, createResendCodeScreen(updatePageFunction, wrapperContainer, inpPhone.val()));
   })
 
   return registerWrapper;
