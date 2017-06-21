@@ -6625,8 +6625,14 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 .m-auto {
   margin: auto; }
 
+.m-inherit {
+  margin: inherit; }
+
 .h-95vh {
   min-height: 95vh; }
+
+.h-100vh {
+  height: 100vh; }
 
 .bg-icon {
   background-size: 13%; }
