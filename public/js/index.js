@@ -9,6 +9,11 @@ const render = (documentRoot)=>{
   documentRoot.append(createWelcome(update));
 }
 
+const reRender = (resultContainer, update, screenToAppend)=>{
+  resultContainer.empty();
+  resultContainer.append(screenToAppend);
+}
+
 const state={
   screen : null,
   btnCheckTerms : false

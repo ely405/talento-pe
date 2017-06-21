@@ -1,6 +1,7 @@
 'use strict';
 
 const createWelcome = (updatePageFunction)=>{
+  console.log(state.screen);
   let welcomeWrapper = $('<section/>',{'class':'row valign-wrapper flex-column space-around h-100vh'});
 
   let carouselContainer = $('<div/>',{'class':'col s12 m5 l6 carousel carousel-slider center m-auto', 'data-indicators':'true'});
@@ -28,5 +29,10 @@ const createWelcome = (updatePageFunction)=>{
   let btnRegister = $('<button/>',{'type':'button', 'class':'waves-effect amber darken-1 btn col s12'}).html('Regístrame');
 
   welcomeWrapper.append(carouselContainer, buttonContainer.append(btnRegister));
+
+  btnRegister.click(()=>{
+    state.screen = 'registerNumberScreen';
+    reRender(welcomeWrapper, updatePageFunction, createRegisterNumber(), 'registerNumberScreen');
+  })
   return welcomeWrapper;
 }
