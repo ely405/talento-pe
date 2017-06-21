@@ -8,7 +8,15 @@
   <title>Yape</title>
 </head>
 <body>
-  <main id="root"></main>
+  <main id="root">
+  </main>
+  <div>
+    <div class="row valign-wrapper flex-column container bg-no-repeat h-100vh flex-center" id="message-container">
+      <h4 class="center">Ahora ingresa tu código</h4>
+      <p class="center">Enviamos un código de validación al número <strong>#########</strong></p>
+        <input id="inp-code" type="text" class="validate p-l-126 col s11 bg-contain bg-no-repeat" placeholder="- - - - -">
+        <p class="center">Reintentar en <i id="clock-icon"class="bg-contain bg-no-repeat"></i><span> xx</span></p>
+    </div>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/vendor/materialize.min.js"></script>
   <script src="js/components/welcome.js"></script>
